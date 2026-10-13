@@ -2,31 +2,26 @@
 #include <cstdlib>
 using namespace std;
 
-double declareWinner(double jumper1, double jumper2);
-double getJumpHeight(double jumper1, double jumper2);
+void declareWinner(double jumper1, double jumper2);
+double getJumpHeight();
 int main()
 {
-    double jumper1;
-    double jumper2;
-    getJumpHeight(jumper1, &jumper2);
-    
-
+    srand(time(NULL));
+    double jumper1=getJumpHeight();
+    double jumper2=getJumpHeight();
     cout<<"Athlete 1 jumped "<<jumper1<<"m"<<endl;
     cout<<"Athlete 2 jumped "<<jumper2<<"m"<<endl;
-    
+    declareWinner(jumper1, jumper2);
     return 0;
 }
 
-double getJumpHeight(double &p1Height, double &p2Height)
+double getJumpHeight()
 {
-    srand(time(NULL));
-    *p1Height=rand()%3+1.0;
-    *p2Height=rand()%3+1.0;
-    return *p1Height;
-    return *p2Height;
+    double Height=(rand()%200)/100.0;
+    return Height+1.0;
 }
 
-/*double declareWinner(double jumper1, double jumper2)
+void declareWinner(double jumper1, double jumper2)
 {
     if(jumper1>jumper2)
     {
@@ -38,4 +33,5 @@ double getJumpHeight(double &p1Height, double &p2Height)
     {
         cout<<"Fair match, same height!"<<endl;
     }
-}*/
+
+}
